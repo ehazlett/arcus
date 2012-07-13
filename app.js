@@ -13,7 +13,7 @@
     limitations under the License.
 */
 var app = require('./server');
-var PORT = process.env.VCAP_APP_PORT || 3002;
+var PORT = process.env.VCAP_APP_PORT || 3000;
 
 app.server.listen(PORT);
 console.log("Application started on port %d in %s mode", app.server.address().port, app.server.settings.env);
