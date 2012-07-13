@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= appTitle %> <% if (title) { %> : <%= title %> <% } %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
+
+    <!-- fav and touch icons -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-114x114.png">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="messages" class="<% if (!flash) { %>hide<% } %>"></div>
+    <% if (flash) { %>
+      <script type="text/javascript">
+      <% for (var i in flash.success) { %>
+      $("#messages").append('<div class="alert alert-success"><a class="close" data-dismiss="alert">×</a><%= flash.success[i] %></div>');
+      <% } %>
+      <% for (var i in flash.info) { %>
+      $("#messages").append('<div class="alert alert-info"><a class="close" data-dismiss="alert">×</a><%= flash.info[i] %></div>');
+      <% } %>
+      <% for (var i in flash.error) { %>
+      $("#messages").append('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><%= flash.error[i] %></div>');
+      <% } %>
+    <% } %>
+    </script>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/"><%= appTitle %></a>
+          <div class="nav-collapse">
+            <ul class="nav">
+            </ul>
+            <ul class="nav pull-right">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
