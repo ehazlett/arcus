@@ -1,0 +1,16 @@
+---
+applications:
+  .:
+    name: arcus-v1
+    framework:
+      name: node
+      info:
+        mem: 64M
+        description: Node.js Application
+        exec: 
+    url: ${name}.${target-base}
+    mem: 64M
+    instances: 1
+    services:
+      redis-arcus:
+        type: redis
